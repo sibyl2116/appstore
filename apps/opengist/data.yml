@@ -1,0 +1,19 @@
+name: Opengist
+tags:
+    - DevOps
+title: 一个由 Git 驱动的自托管 Pastebin
+description: 一个由 Git 驱动的自托管 Pastebin
+additionalProperties:
+    key: opengist
+    name: Opengist
+    tags:
+        - DevOps
+    shortDescZh: 一个由 Git 驱动的自托管 Pastebin
+    shortDescEn: Opengist is a self-hosted Pastebin powered by Git.
+    type: tool
+    crossVersionUpdate: true
+    limit: 0
+    recommend: 0
+    website: https://opengist.io/
+    github: https://github.com/thomiceli/opengist
+    document: https://opengist.io/docs/
