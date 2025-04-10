@@ -1,16 +1,16 @@
 services:
-  opengist:
-    image: ghcr.io/thomiceli/opengist:1.9.1
+  cloudbeaver:
+    image: dbeaver/cloudbeaver:25.0.2
     container_name: ${CONTAINER_NAME}
     restart: unless-stopped
-    networks:  
+    networks:
       - 1panel-network
     ports:
-      - ${PANEL_APP_PORT_HTTP}:6157
+      - ${PANEL_APP_PORT_HTTP}:8978
     volumes:
-      - ./data:/opengist
+      - ./data:/opt/cloudbeaver/workspace
     labels:  
       createdBy: "Apps"
-networks:
-  1panel-network:
+networks:  
+  1panel-network:  
     external: true
