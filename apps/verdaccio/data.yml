@@ -10,7 +10,7 @@ additionalProperties:
         - DevOps
     shortDescZh: 本地私有 NPM 注册中心
     shortDescEn: local private NPM registry
-    type: tool
+    type: website
     crossVersionUpdate: true
     limit: 0
     recommend: 0
@@ -26,3 +26,6 @@ additionalProperties:
         pt-br: Registro NPM privado local
         ru: Локальный частный реестр NPM
         ko: 로컬 개인 NPM 레지스트리
+    architectures:
+      - amd64
+      - arm64

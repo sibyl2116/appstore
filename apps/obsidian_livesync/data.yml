@@ -10,7 +10,7 @@ additionalProperties:
     - Tool
   shortDescZh: Obsidian 在线同步插件
   shortDescEn: Obsidian Self-hosted LiveSync
-  type: tool
+  type: website
   crossVersionUpdate: true
   limit: 0
   recommend: 0
@@ -26,3 +26,8 @@ additionalProperties:
     pt-br: Obsidian LiveSync auto-hospedado
     ru: Обсидиан Самостоятельно размещаемая синхронизация в реальном времени
     ko: Obsidian 자체 호스팅 실시간 동기화
+  architectures:
+    - amd64
+    - arm64
+    - ppc64le
+    - s390x

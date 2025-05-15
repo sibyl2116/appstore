@@ -10,7 +10,7 @@ additionalProperties:
         - Tool
     shortDescZh: 开源的 Matrix 家庭服务器，自建聊天服务端
     shortDescEn: Open-source Matrix homeserver,build your own chat server
-    type: tool
+    type: website
     crossVersionUpdate: true
     limit: 1
     recommend: 0
@@ -26,3 +26,7 @@ additionalProperties:
         pt-br: Servidor doméstico Matrix de código aberto, construa seu próprio servidor de chat
         ru: Открытый сервер Matrix, создайте свой собственный сервер чата
         ko: 오픈 소스 Matrix 홈 서버, 자체 채팅 서버 구축
+    memoryRequired: 2048
+    architectures:
+      - amd64
+      - arm64

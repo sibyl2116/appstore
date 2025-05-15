@@ -10,7 +10,7 @@ additionalProperties:
         - DevTool
     shortDescZh: Kafka Web 管理工具
     shortDescEn: Redpanda Console – A UI for Data Streaming
-    type: tool
+    type: website
     crossVersionUpdate: true
     limit: 1
     recommend: 0
@@ -26,3 +26,6 @@ additionalProperties:
         pt-br: Redpanda Console – Uma interface para streaming de dados
         ru: Redpanda Console – Интерфейс для потоковой передачи данных
         ko: Redpanda Console – 데이터 스트리밍을 위한 UI
+    architectures:
+      - amd64
+      - arm64

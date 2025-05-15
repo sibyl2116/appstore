@@ -10,7 +10,7 @@ additionalProperties:
         - Tool
     shortDescZh: 网页文件浏览器
     shortDescEn: Web File Browser
-    type: tool
+    type: website
     crossVersionUpdate: true
     limit: 0
     recommend: 0
@@ -26,3 +26,7 @@ additionalProperties:
         pt-br: Navegador de Arquivos Web
         ru: Веб-браузер файлов
         ko: 웹 파일 브라우저
+    architectures:
+        - amd64
+        - arm64
+        - arm/v7

@@ -10,7 +10,7 @@ additionalProperties:
         - Tool
     shortDescZh: 跨平台的开源 BitTorrent 客户端
     shortDescEn: Cross-platform open source BitTorrent client
-    type: tool
+    type: website
     crossVersionUpdate: true
     limit: 0
     recommend: 0
@@ -26,3 +26,6 @@ additionalProperties:
         pt-br: Cliente BitTorrent de código aberto multiplataforma
         ru: Кроссплатформенный клиент BitTorrent с открытым исходным кодом
         ko: 크로스 플랫폼 오픈 소스 BitTorrent 클라이언트
+    architectures:
+      - amd64
+      - arm64

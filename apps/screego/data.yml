@@ -10,7 +10,7 @@ additionalProperties:
     - Tool
   shortDescZh: 开源屏幕共享工具
   shortDescEn: Open source screen sharing tools
-  type: tool
+  type: website
   crossVersionUpdate: false
   limit: 0
   recommend: 0
@@ -26,3 +26,9 @@ additionalProperties:
     pt-br: Ferramentas de compartilhamento de tela de código aberto
     ru: Инструменты для совместного использования экрана с открытым исходным кодом
     ko: 오픈 소스 화면 공유 도구
+  architectures:
+    - amd64
+    - arm64
+    - arm/v6
+    - arm/v7
+    - ppc64le
