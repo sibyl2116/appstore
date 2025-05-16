@@ -17,9 +17,9 @@ installExtensionFromTgz()
     extensionName="${tgzName%%-*}"
     shift 1
     result=$@
-    mkdir ${extensionName}
-    tar -zxvf /tmp/data/${tgzName}.tgz -C ${extensionName} --strip-components=1
-    ( cd ${extensionName} && phpize && ./configure ${result} && make ${MC} && make install )
+    mkdir /tmp/data/${tgzName}
+    tar -zxvf /tmp/data/${tgzName}.tar.gz -C /tmp/data/${tgzName} --strip-components=1
+    ( cd /tmp/data/${tgzName} && phpize && ./configure ${result} && make ${MC} && make install )
 
     docker-php-ext-enable ${extensionName}
 }
@@ -205,7 +205,7 @@ install_extension() {
         apt-get install -y  libsodium-dev
         docker_php_ext_install sodium
     elif [ "$extension" = "zip" ]; then
-        docker_php_ext_install zip    
+        install_php_extensions zip    
     elif [ "$extension" = "memcached" ]; then
         install_php_extensions memcached 
     elif [ "$extension" = "igbinary" ]; then
