@@ -1,15 +1,14 @@
 services:
-  ollama:
-    image: ollama/ollama:0.9.3
+  mkdocs-material:
+    image: squidfunk/mkdocs-material:9.6.15
     container_name: ${CONTAINER_NAME}
-    restart: unless-stopped
-    ports:
-      - ${PANEL_APP_PORT_HTTP}:11434
+    restart: always
     networks:
       - 1panel-network
-    tty: true
+    ports:
+      - "${PANEL_APP_PORT_HTTP}:8000"
     volumes:
-      - ./data:/root/.ollama
+      - ./data:/docs
     labels:
       createdBy: "Apps"
 networks:
