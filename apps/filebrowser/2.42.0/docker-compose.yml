@@ -1,14 +1,16 @@
 services:
-  mkdocs-material:
-    image: squidfunk/mkdocs-material:9.6.15
+  filebrowser:
     container_name: ${CONTAINER_NAME}
     restart: always
     networks:
       - 1panel-network
     ports:
-      - "${PANEL_APP_PORT_HTTP}:8000"
+      - ${PANEL_APP_PORT_HTTP}:80
     volumes:
-      - ./data:/docs
+      - ${MOUNT_PATH}:/srv
+      - ./config:/config
+      - ./database:/database
+    image: filebrowser/filebrowser:v2.42.0
     labels:
       createdBy: "Apps"
 networks:
