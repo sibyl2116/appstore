@@ -1,20 +1,16 @@
 services:
-  homepage:
+  onedev:
+    image: 1dev/server:12.0.3
     container_name: ${CONTAINER_NAME}
-    image: ghcr.io/gethomepage/homepage:v1.4.0
     restart: always
     networks:
       - 1panel-network
     ports:
-      - "${PANEL_APP_PORT_HTTP}:3000"
+      - "${PANEL_APP_PORT_HTTP}:6610"
+      - "${PANEL_APP_PORT_SSH}:6611"
     volumes:
-      - ./config:/app/config
+      - ./data:/opt/onedev
       - /var/run/docker.sock:/var/run/docker.sock
-    environment:
-      - PUID=1000
-      - PGID=1000
-      - HOMEPAGE_ALLOWED_HOSTS=${HOMEPAGE_ALLOWED_HOSTS}
-      - TZ=${TIME_ZONE}
     labels:  
       createdBy: "Apps"
 networks:  
