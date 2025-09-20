@@ -5,6 +5,11 @@
     "githubaction@githubaction.com"
   ],
   "rebaseWhen": "never",
+  "ignorePaths": [
+    "apps/mysql-cluster/**",
+    "apps/redis-cluster/**",
+    "apps/postgresql-cluster/**"
+  ],
   "packageRules": [
     {
       "packageNames": ["docker-compose"],
@@ -165,6 +170,22 @@
     {
       "matchFileNames": ["apps/mliev-dwz/2.*/*.yml"],
       "allowedVersions": "/^2.*/"
+    },
+    {
+      "matchFileNames": ["apps/odoo/18.*/*.yml"],
+      "allowedVersions": "/^18.*/"
+    },
+    {
+      "matchFileNames": ["apps/odoo/19.*/*.yml"],
+      "allowedVersions": "/^19.*/"
+    },
+    {
+      "matchFileNames": ["apps/onedev/12.*/*.yml"],
+      "allowedVersions": "/^12.*/"
+    },
+    {
+      "matchFileNames": ["apps/onedev/13.*/*.yml"],
+      "allowedVersions": "/^13.*/"
     },
     {
       "matchDatasources": ["docker"],
