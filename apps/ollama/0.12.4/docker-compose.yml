@@ -1,15 +1,15 @@
 services:
-  beszel:
-    image: henrygd/beszel:0.13.1
+  ollama:
+    image: ollama/ollama:0.12.4
     container_name: ${CONTAINER_NAME}
     restart: unless-stopped
+    ports:
+      - ${PANEL_APP_PORT_HTTP}:11434
     networks:
       - 1panel-network
-    ports:
-      - ${PANEL_APP_PORT_HTTP}:8090
+    tty: true
     volumes:
-      - ./data/data:/beszel_data
-      - ./data/socket:/beszel_socket
+      - ./data:/root/.ollama
     labels:
       createdBy: "Apps"
 networks:
