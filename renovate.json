@@ -84,14 +84,6 @@
       "allowedVersions": "/^17.*/"
     },
     {
-      "matchFileNames": ["apps/jumpserver/3.*/*.yml"],
-      "allowedVersions": "/^3.*/"
-    },
-    {
-      "matchFileNames": ["apps/jumpserver/4.*/*.yml"],
-      "allowedVersions": "/^4.*/"
-    },
-    {
       "matchFileNames": ["apps/maxkb/1.*/*.yml"],
       "allowedVersions": "/^1.*/"
     },
@@ -150,14 +142,6 @@
     {
       "matchFileNames": ["apps/mssql/2022-*/*.yml"],
       "allowedVersions": "/^2022-*/"
-    },
-    {
-      "matchFileNames": ["apps/dataease/1.*/*.yml"],
-      "allowedVersions": "<=1.20"
-    },
-    {
-      "matchFileNames": ["apps/dataease/2.*/*.yml"],
-      "allowedVersions": ">=2.0"
     },
     {
       "matchFileNames": ["apps/zitadel/2.*/*.yml"],
