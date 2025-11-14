@@ -1,35 +1,23 @@
 additionalProperties:
   formFields:
-    - default: 3000
-      envKey: PANEL_APP_PORT_HTTP
-      labelEn: Port
-      labelZh: HTTP 端口
-      required: true
-      rule: paramPort
-      type: number
-      label:
-        en: HTTP Port
-        ja: HTTP ポート
-        ms: HTTP Port
-        pt-br: HTTP Porta
-        ru: HTTP Порт
-        ko: HTTP 포트
-        zh-Hant: HTTP 埠
-        zh: HTTP 端口
-    - default: postgresql
+    - child:
+        default: ""
+        envKey: PANEL_DB_HOST
+        required: true
+        type: service
+      default: postgresql
       envKey: PANEL_DB_TYPE
       labelEn: Database Service
       labelZh: 数据库服务
       required: true
       type: apps
-      child:
-        default: ""
-        envKey: PANEL_DB_HOST
-        required: true
-        type: service
       values:
         - label: PostgreSQL
           value: postgresql
+        - label: MySQL
+          value: mysql
+        - label: MariaDB
+          value: mariadb
       label:
         en: Database Service
         ja: データベースサービス
@@ -39,10 +27,10 @@ additionalProperties:
         ko: 데이터베이스 서비스
         zh-hant: 資料庫服務
         zh: 数据库服务
-    - default: teable
+    - default: dwz
       envKey: PANEL_DB_NAME
       labelEn: Database
-      labelZh: 数据库名
+      labelZh: 数据库
       random: true
       required: true
       rule: paramCommon
@@ -56,7 +44,7 @@ additionalProperties:
         ko: 데이터베이스
         zh-hant: 資料庫
         zh: 数据库
-    - default: teable
+    - default: dwz
       envKey: PANEL_DB_USER
       random: true
       required: true
@@ -73,13 +61,13 @@ additionalProperties:
         ko: 데이터베이스 사용자
         zh-hant: 資料庫用戶
         zh: 数据库用户
-    - default: teable
+    - default: dwz
       envKey: PANEL_DB_USER_PASSWORD
+      labelEn: Database User Password
+      labelZh: 数据库用户密码
       random: true
       required: true
       type: password
-      labelEn: Database Password
-      labelZh: 数据库密码
       label:
         en: Database Password
         ja: データベースのパスワード
@@ -122,23 +110,23 @@ additionalProperties:
         ko: Redis 서비스 비밀번호
         zh-Hant: Redis 服務密碼
         zh: Redis 服务密码
-    - default: http://<YOUR IP>:3000
+    - default: 8081
       edit: true
-      envKey: PUBLIC_ORIGIN
-      labelEn: PUBLIC ADDRESS (Default server IP)
-      labelZh: 公开访问地址（默认服务器 IP）
+      envKey: PANEL_APP_PORT_HTTP
+      labelEn: Port
+      labelZh: 端口
       label:
-        en: PUBLIC ADDRESS (Default server IP)
-        ja: パブリックアドレス（デフォルトのサーバーIP）
-        ms: ALAMAT PUBLIK (IP Pelayan Lalai)
-        pt-br: ENDEREÇO PÚBLICO (IP do servidor padrão)
-        ru: ПУБЛИЧНЫЙ АДРЕС (IP сервера по умолчанию)
-        ko: 공개 주소 (기본 서버 IP)
-        zh-hant: 公開訪問地址（預設伺服器 IP）
-        zh: 公开访问地址（默认服务器 IP）
+        en: Port
+        ja: ポート
+        ms: Pelabuhan
+        pt-br: Porta
+        ru: Порт
+        ko: 포트
+        zh-hant: 埠
+        zh: 端口
       required: true
-      rule: paramExtUrl
-      type: text
+      rule: paramPort
+      type: number
     - default: Asia/Shanghai
       edit: true
       envKey: TIME_ZONE
