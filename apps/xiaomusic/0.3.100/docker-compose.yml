@@ -1,15 +1,15 @@
 services:
-  bytebase:
-    image: bytebase/bytebase:3.12.1
+  xiaomusic:
+    image: hanxi/xiaomusic:v0.3.100
     container_name: ${CONTAINER_NAME}
-    restart: always
+    restart: unless-stopped
     networks:
       - 1panel-network
     ports:
-      - ${PANEL_APP_PORT_HTTP}:8080
+      - ${HOST_IP}:${PANEL_APP_PORT_HTTP}:8090
     volumes:
-      - ./data:/var/opt/bytebase
-    init: true
+      - ./data/music:/app/music
+      - ./data/conf:/app/conf
     labels:
       createdBy: "Apps"
 networks:
