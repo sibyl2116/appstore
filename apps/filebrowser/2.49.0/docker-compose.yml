@@ -1,16 +1,16 @@
 services:
-  neo4j:
-    image: neo4j:5.26.16
+  filebrowser:
     container_name: ${CONTAINER_NAME}
     restart: always
     networks:
       - 1panel-network
     ports:
-      - ${PANEL_APP_PORT_HTTP}:7474
-      - ${PANEL_APP_PORT_BOLT}:7687
+      - ${PANEL_APP_PORT_HTTP}:80
     volumes:
-      - ./data/data:/data
-      - ./data/logs:/logs
+      - ${MOUNT_PATH}:/srv
+      - ./config:/config
+      - ./database:/database
+    image: filebrowser/filebrowser:v2.49.0
     labels:
       createdBy: "Apps"
 networks:
