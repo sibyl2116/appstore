@@ -1,16 +1,16 @@
 services:
-  n8n:
-    image: n8nio/n8n:2.2.5
+  filebrowser:
     container_name: ${CONTAINER_NAME}
     restart: always
     networks:
       - 1panel-network
     ports:
-      - ${PANEL_APP_PORT_HTTP}:5678
+      - ${PANEL_APP_PORT_HTTP}:80
     volumes:
-      - ./data:/home/node/.n8n
-    environment:
-      N8N_SECURE_COOKIE: false
+      - ${MOUNT_PATH}:/srv
+      - ./config:/config
+      - ./database:/database
+    image: filebrowser/filebrowser:v2.54.0
     labels:
       createdBy: "Apps"
 networks:
