@@ -1,15 +1,15 @@
 services:
-  beszel:
-    image: henrygd/beszel:0.17.0
+  xiaomusic:
+    image: hanxi/xiaomusic:v0.4.7
     container_name: ${CONTAINER_NAME}
     restart: unless-stopped
     networks:
       - 1panel-network
     ports:
-      - ${PANEL_APP_PORT_HTTP}:8090
+      - ${HOST_IP}:${PANEL_APP_PORT_HTTP}:8090
     volumes:
-      - ./data/data:/beszel_data
-      - ./data/socket:/beszel_socket
+      - ./data/music:/app/music
+      - ./data/conf:/app/conf
     labels:
       createdBy: "Apps"
 networks:
