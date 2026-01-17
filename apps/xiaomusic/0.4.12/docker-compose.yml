@@ -1,15 +1,15 @@
 services:
-  ollama:
-    image: ollama/ollama:0.14.1
+  xiaomusic:
+    image: hanxi/xiaomusic:v0.4.12
     container_name: ${CONTAINER_NAME}
     restart: unless-stopped
-    ports:
-      - ${PANEL_APP_PORT_HTTP}:11434
     networks:
       - 1panel-network
-    tty: true
+    ports:
+      - ${HOST_IP}:${PANEL_APP_PORT_HTTP}:8090
     volumes:
-      - ./data:/root/.ollama
+      - ./data/music:/app/music
+      - ./data/conf:/app/conf
     labels:
       createdBy: "Apps"
 networks:
