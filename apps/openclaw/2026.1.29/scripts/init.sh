@@ -5,10 +5,10 @@ ARCH=$(uname -m)
 
 case "$ARCH" in
   x86_64|amd64)
-    BIN="moltbot-setup-linux-amd64"
+    BIN="openclaw-setup-linux-amd64"
     ;;
   aarch64|arm64)
-    BIN="moltbot-setup-linux-arm64"
+    BIN="openclaw-setup-linux-arm64"
     ;;
   *)
     echo "Unsupported architecture: $ARCH"
