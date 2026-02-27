@@ -1,15 +1,16 @@
 services:
-  bytebase:
-    image: bytebase/bytebase:3.15.0
+  n8n:
+    image: n8nio/n8n:2.8.4
     container_name: ${CONTAINER_NAME}
     restart: always
     networks:
       - 1panel-network
     ports:
-      - ${PANEL_APP_PORT_HTTP}:8080
+      - ${PANEL_APP_PORT_HTTP}:5678
     volumes:
-      - ./data:/var/opt/bytebase
-    init: true
+      - ./data:/home/node/.n8n
+    environment:
+      N8N_SECURE_COOKIE: false
     labels:
       createdBy: "Apps"
 networks:

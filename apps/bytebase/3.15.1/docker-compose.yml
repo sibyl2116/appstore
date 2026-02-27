@@ -1,14 +1,15 @@
 services:
-  redpanda-console:
-    image: redpandadata/console:v3.5.2
-    restart: always
+  bytebase:
+    image: bytebase/bytebase:3.15.1
     container_name: ${CONTAINER_NAME}
+    restart: always
     networks:
       - 1panel-network
-    environment:
-      KAFKA_BROKERS: ${KAFKA_HOST}:9092
     ports:
       - ${PANEL_APP_PORT_HTTP}:8080
+    volumes:
+      - ./data:/var/opt/bytebase
+    init: true
     labels:
       createdBy: "Apps"
 networks:
