@@ -1,0 +1,32 @@
+name: CoPaw
+tags:
+  - AI
+title: 你的 AI 个人助理
+description: 你的 AI 个人助理
+additionalProperties:
+  key: copaw
+  name: CoPaw
+  tags:
+    - AI
+  shortDescZh: 你的 AI 个人助理
+  shortDescEn: Your Personal AI Assistant
+  description:
+    en: Your Personal AI Assistant
+    zh: 你的 AI 个人助理
+    zh-Hant: 你的 AI 个人助理
+    ja: あなたの AI パーソナルアシスタント
+    ms: Pembantu AI Peribadi Anda
+    pt-br: Seu Assistente Pessoal de IA
+    ru: Ваш персональный AI-ассистент
+    ko: 당신의 AI 개인 비서
+  type: website
+  crossVersionUpdate: true
+  limit: 0
+  recommend: 16
+  batchInstallSupport: true
+  website: http://copaw.agentscope.io/
+  github: https://github.com/agentscope-ai/copaw
+  document: https://copaw.agentscope.io/docs/intro
+  architectures:
+    - amd64
+    - arm64
