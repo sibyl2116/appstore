@@ -1,18 +1,18 @@
 services:
-  certd:
-    image: greper/certd:1.39.1
+  n8n:
+    image: n8nio/n8n:2.13.0
     container_name: ${CONTAINER_NAME}
     restart: always
     networks:
       - 1panel-network
-    volumes:
-      - ./data/certd:/app/data
     ports:
-      - ${PANEL_APP_PORT_HTTP}:7001
-      - ${PANEL_APP_PORT_HTTPS}:7002
+      - ${PANEL_APP_PORT_HTTP}:5678
+    volumes:
+      - ./data:/home/node/.n8n
+    environment:
+      N8N_SECURE_COOKIE: false
     labels:
       createdBy: "Apps"
 networks:
   1panel-network:
     external: true
-
