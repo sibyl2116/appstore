@@ -1,16 +1,17 @@
 services:
-  n8n:
-    image: n8nio/n8n:2.12.3
+  node-red:
+    image: nodered/node-red:4.1.8
     container_name: ${CONTAINER_NAME}
     restart: always
     networks:
       - 1panel-network
+    user: root
     ports:
-      - ${PANEL_APP_PORT_HTTP}:5678
-    volumes:
-      - ./data:/home/node/.n8n
+      - ${PANEL_APP_PORT_HTTP}:1880
     environment:
-      N8N_SECURE_COOKIE: false
+      - TZ=Asia/Shanghai
+    volumes:
+      - ./data:/data
     labels:
       createdBy: "Apps"
 networks:
