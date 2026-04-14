@@ -1,32 +1,53 @@
 additionalProperties:
   formFields:
+    - default: 8000
+      envKey: PANEL_APP_PORT_HTTP
+      labelEn: Port
+      labelZh: 端口
+      required: true
+      rule: paramPort
+      type: number
+      label:
+        en: Port
+        es-es: Puerto
+        ja: ポート
+        ms: Port
+        pt-br: Porta
+        ru: Порт
+        ko: 포트
+        zh: 端口
+        zh-Hant: 埠
+        tr: Bağlantı Noktası
     - child:
         default: ""
         envKey: PANEL_DB_HOST
         required: true
         type: service
-      default: postgresql
-      edit: true
+      default: mysql
       envKey: PANEL_DB_TYPE
-      labelZh: 数据库 服务
       labelEn: Database Service
+      labelZh: 数据库服务
       label:
         en: Database Service
         es-es: Servicio de base de datos
-        ja: データベースサービス
+        ja: データベース サービス
         ms: Perkhidmatan Pangkalan Data
         pt-br: Serviço de Banco de Dados
         ru: Сервис базы данных
         ko: 데이터베이스 서비스
-        zh: 数据库 服务
-        zh-Hant: 數據庫 服務
+        zh: 数据库服务
+        zh-Hant: 數據庫服務
         tr: Veritabanı Hizmeti
       required: true
       type: apps
       values:
+        - label: MySQL
+          value: mysql
+        - label: MariaDB
+          value: mariadb
         - label: PostgreSQL
-          value: postgresql
-    - default: nocodb
+          value: postgres
+    - default: casdoor
       envKey: PANEL_DB_NAME
       labelEn: Database
       labelZh: 数据库名
@@ -45,7 +66,7 @@ additionalProperties:
       required: true
       rule: paramCommon
       type: text
-    - default: nocodb
+    - default: casdoor
       envKey: PANEL_DB_USER
       labelEn: User
       labelZh: 数据库用户
@@ -64,7 +85,7 @@ additionalProperties:
       required: true
       rule: paramCommon
       type: text
-    - default: nocodb
+    - default: casdoor
       envKey: PANEL_DB_USER_PASSWORD
       labelEn: Password
       labelZh: 数据库用户密码
@@ -82,21 +103,3 @@ additionalProperties:
       random: true
       required: true
       type: password
-    - default: 8080
-      envKey: PANEL_APP_PORT_HTTP
-      labelEn: Port
-      labelZh: 端口
-      label:
-        en: Port
-        es-es: Puerto
-        ja: ポート
-        ms: Port
-        pt-br: Porta
-        ru: Порт
-        ko: 포트
-        zh: 端口
-        zh-Hant: 埠
-        tr: Bağlantı Noktası
-      required: true
-      rule: paramPort
-      type: number
