@@ -1,16 +1,16 @@
 services:
-  showdoc:
-    image: star7th/showdoc:v3.8.2
+  music-tag-web:
+    image: xhongc/music_tag_web:2.7.2
     container_name: ${CONTAINER_NAME}
     restart: always
     networks:
       - 1panel-network
     ports:
-      - ${PANEL_APP_PORT_HTTP}:80
-    tty: true
+      - ${PANEL_APP_PORT_HTTP}:8001
     volumes:
-      - /showdoc_data:/showdoc_data_old
-      - ./showdocdata/html:/var/www/html
+      - ./data:/app/media:rw
+      - ./config:/app/data
+    command: /start
     labels:  
       createdBy: "Apps"
 networks:  
