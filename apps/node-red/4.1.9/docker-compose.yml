@@ -1,17 +1,17 @@
 services:
-  twikoo:
+  node-red:
+    image: nodered/node-red:4.1.9
     container_name: ${CONTAINER_NAME}
-    image: imaegoo/twikoo:1.7.8
     restart: always
-    ports:
-      - ${PANEL_APP_PORT_HTTP}:8080
     networks:
       - 1panel-network
-    volumes:
-      - ./data:/app/data
+    user: root
+    ports:
+      - ${PANEL_APP_PORT_HTTP}:1880
     environment:
-      - "TWIKOO_THROTTLE=1000"
-      - "TWIKOO_PORT=8080"
+      - TZ=Asia/Shanghai
+    volumes:
+      - ./data:/data
     labels:
       createdBy: "Apps"
 networks:
