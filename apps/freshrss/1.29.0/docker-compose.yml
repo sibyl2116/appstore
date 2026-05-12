@@ -1,18 +1,20 @@
 services:
-  certd:
-    image: greper/certd:1.39.12
+  freshrss:
+    image: linuxserver/freshrss:1.29.0
     container_name: ${CONTAINER_NAME}
     restart: always
     networks:
       - 1panel-network
-    volumes:
-      - ./data/certd:/app/data
     ports:
-      - ${PANEL_APP_PORT_HTTP}:7001
-      - ${PANEL_APP_PORT_HTTPS}:7002
+      - ${PANEL_APP_PORT_HTTP}:80
+    volumes:
+      - ./data:/config
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=${TIME_ZONE}
     labels:
       createdBy: "Apps"
 networks:
   1panel-network:
     external: true
-
