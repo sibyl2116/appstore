@@ -1,18 +1,17 @@
 services:
-  certd:
-    image: greper/certd:1.39.13
+  clawswarm:
     container_name: ${CONTAINER_NAME}
+    image: 1panel/clawswarm:v1.0.5
     restart: always
     networks:
       - 1panel-network
-    volumes:
-      - ./data/certd:/app/data
     ports:
-      - ${PANEL_APP_PORT_HTTP}:7001
-      - ${PANEL_APP_PORT_HTTPS}:7002
+      - ${PANEL_APP_PORT_HTTP}:18080
+    volumes:
+      - ./data:/opt/clawswarm
     labels:
       createdBy: "Apps"
+
 networks:
   1panel-network:
     external: true
-
