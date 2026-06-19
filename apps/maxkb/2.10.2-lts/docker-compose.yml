@@ -1,17 +1,14 @@
 services:
-  copaw:
+  maxkb:
+    image: 1panel/maxkb:v2.10.2-lts
     container_name: ${CONTAINER_NAME}
-    image: agentscope/qwenpaw:v1.1.11
     restart: unless-stopped
+    ports:
+      - ${PANEL_APP_PORT_HTTP}:8080
     networks:
       - 1panel-network
-    ports:
-      - ${PANEL_APP_PORT_HTTP}:8088
-    environment:
-      - COPAW_AUTH_ENABLED=true
     volumes:
-      - ./data:/app/working
-      - ./secret:/app/working.secret
+      - ./data:/opt/maxkb
     labels:
       createdBy: "Apps"
 networks:
