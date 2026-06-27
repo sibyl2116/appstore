@@ -1,19 +1,16 @@
 services:
-  nextcloud:
-    image: linuxserver/nextcloud:34.0.0
+  n8n:
+    image: n8nio/n8n:2.28.2
     container_name: ${CONTAINER_NAME}
     restart: always
     networks:
       - 1panel-network
     ports:
-      - "${PANEL_APP_PORT_HTTPS}:443"
+      - ${PANEL_APP_PORT_HTTP}:5678
     volumes:
-      - "./data/config:/config"
-      - "./data/data:/data"
+      - ./data:/home/node/.n8n
     environment:
-      - PUID=1000
-      - PGID=1000
-      - TZ=${TIME_ZONE}
+      N8N_SECURE_COOKIE: false
     labels:
       createdBy: "Apps"
 networks:
