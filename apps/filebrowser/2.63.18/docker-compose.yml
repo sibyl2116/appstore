@@ -1,17 +1,18 @@
 services:
-  dashboard:
-    image: ghcr.io/nezhahq/nezha:v2.2.8
+  filebrowser:
     container_name: ${CONTAINER_NAME}
     restart: always
     networks:
       - 1panel-network
     ports:
-      - ${PANEL_APP_PORT_HTTP}:8008
+      - ${PANEL_APP_PORT_HTTP}:80
     volumes:
-      - ./data:/dashboard/data
+      - ${MOUNT_PATH}:/srv
+      - ./config:/config
+      - ./database:/database
+    image: filebrowser/filebrowser:v2.63.18
     labels:
       createdBy: "Apps"
-
 networks:
   1panel-network:
     external: true

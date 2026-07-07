@@ -1,18 +1,17 @@
 services:
-  certd:
-    image: greper/certd:1.41.4
+  dashboard:
+    image: ghcr.io/nezhahq/nezha:v2.2.9
     container_name: ${CONTAINER_NAME}
     restart: always
     networks:
       - 1panel-network
-    volumes:
-      - ./data/certd:/app/data
     ports:
-      - ${PANEL_APP_PORT_HTTP}:7001
-      - ${PANEL_APP_PORT_HTTPS}:7002
+      - ${PANEL_APP_PORT_HTTP}:8008
+    volumes:
+      - ./data:/dashboard/data
     labels:
       createdBy: "Apps"
+
 networks:
   1panel-network:
     external: true
-
