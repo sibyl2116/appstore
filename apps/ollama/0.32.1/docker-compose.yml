@@ -1,14 +1,15 @@
 services:
-  maxkb:
-    image: 1panel/maxkb:v2.10.3-lts
+  ollama:
+    image: ollama/ollama:0.32.1
     container_name: ${CONTAINER_NAME}
     restart: unless-stopped
     ports:
-      - ${PANEL_APP_PORT_HTTP}:8080
+      - ${PANEL_APP_PORT_HTTP}:11434
     networks:
       - 1panel-network
+    tty: true
     volumes:
-      - ./data:/opt/maxkb
+      - ./data:/root/.ollama
     labels:
       createdBy: "Apps"
 networks:

@@ -1,19 +1,15 @@
 services:
-  dbx:
-    image: t8y2/dbx:0.5.57
+  drawio:
+    image: jgraph/drawio:30.3.12
     container_name: ${CONTAINER_NAME}
     restart: unless-stopped
     networks:
       - 1panel-network
-    environment:
-      - DBX_PASSWORD=${PANEL_DB_PASSWORD}
     ports:
-      - "${PANEL_APP_PORT_HTTP}:4224"
-    volumes:
-      - ./data:/app/data
+      - ${PANEL_APP_PORT_HTTP}:8080
+      - ${PANEL_APP_PORT_HTTPS}:8443
     labels:
       createdBy: "Apps"
-
 networks:
   1panel-network:
     external: true
