@@ -1,18 +1,21 @@
 services:
-  n8n:
-    image: n8nio/n8n:2.30.5
+  dashboard:
+    image: ghcr.io/komari-monitor/komari:1.2.7
     container_name: ${CONTAINER_NAME}
     restart: always
+    user: "0:0"
     networks:
       - 1panel-network
     ports:
-      - ${PANEL_APP_PORT_HTTP}:5678
+      - ${PANEL_APP_PORT_HTTP}:25774
     volumes:
-      - ./data:/home/node/.n8n
+      - ./data:/app/data
     environment:
-      N8N_SECURE_COOKIE: false
+      ADMIN_USERNAME: ${ADMIN_USERNAME}
+      ADMIN_PASSWORD: ${ADMIN_PASSWORD}
     labels:
       createdBy: "Apps"
+
 networks:
   1panel-network:
     external: true
