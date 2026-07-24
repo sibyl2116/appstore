@@ -1,9 +1,12 @@
 ## 使用说明
 
-> 默认端口号为 **25774**，后台账号为 **admin**，后台密码为 **password+随机**，请在安装填写信息的时候及时修改
-> 如果填写的时候未记住或忘记那么可以通过容器日志查看
-> 例如 **1Panel-localkomari-pThk  | 2026/02/09 08:08:13 [INFO] Default admin account created. Username: admin , Password: password_jWZ62s (github.com/komari-monitor/komari/cmd/server.go:391)**
-> 其中 **Username: admin , Password: password_jWZ62s** 就是你的用户名和密码
+> **首次安装**
+>
+> 从 1.3.0 版本起，新安装的实例不再通过启动日志或环境变量提供默认管理员账号。安装完成后，请访问 Web 管理界面（默认端口为 `25774`），按照引导创建管理员账号并完成初始化配置。
+>
+> **升级提示**
+>
+> 从 1.2.7 及更早版本升级到 1.3.0 前，请务必备份应用目录中的 `data` 数据。升级过程中，旧监控数据会按“每小时、每个指标序列”的 P95 值聚合迁移，原始明细数据将被删除且无法恢复。
 
 ## 产品介绍
 
