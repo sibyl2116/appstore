@@ -1,15 +1,16 @@
 services:
-  kubepi:
-    image: 1panel/kubepi:v2.0.2
+  zentao:
+    image: hub.zentao.net/app/zentao:22.5
     container_name: ${CONTAINER_NAME}
     restart: always
-    networks:
-      - 1panel-network
     ports:
       - ${PANEL_APP_PORT_HTTP}:80
     volumes:
-      - ./data:/var/lib/kubepi
-    privileged: true
+      - ./data:/data
+    environment:
+      - MYSQL_INTERNAL=true
+    networks:
+      - 1panel-network
     labels:
       createdBy: "Apps"
 networks:
