@@ -1,19 +1,17 @@
 services:
-  dbx:
-    image: t8y2/dbx:0.6.33
+  beszel:
+    image: henrygd/beszel:0.21.0
     container_name: ${CONTAINER_NAME}
     restart: unless-stopped
     networks:
       - 1panel-network
-    environment:
-      - DBX_PASSWORD=${PANEL_DB_PASSWORD}
     ports:
-      - "${PANEL_APP_PORT_HTTP}:4224"
+      - ${PANEL_APP_PORT_HTTP}:8090
     volumes:
-      - ./data:/app/data
+      - ./data/data:/beszel_data
+      - ./data/socket:/beszel_socket
     labels:
       createdBy: "Apps"
-
 networks:
   1panel-network:
     external: true
