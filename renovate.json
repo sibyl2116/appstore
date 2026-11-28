@@ -24,6 +24,10 @@
     "n8n-stable": {
       "defaultRegistryUrlTemplate": "https://raw.githubusercontent.com/n8n-io/n8n/refs/tags/stable/packages/cli/package.json",
       "transformTemplates": ["{'releases': [{'version': version}]}"]
+    },
+    "magpie-stable": {
+      "defaultRegistryUrlTemplate": "https://usemagpie.ai/api/latest?channel=stable",
+      "transformTemplates": ["{'releases': [{'version': version}]}"]
     }
   },
   "packageRules": [
@@ -40,6 +44,23 @@
       "matchPackageNames": ["n8nio/n8n"],
       "overrideDatasource": "custom.n8n-stable",
       "versioning": "semver"
+    },
+    {
+      "matchFileNames": ["apps/magpie/*/docker-compose.yml"],
+      "matchPackageNames": ["ghcr.io/yetone/magpie"],
+      "overrideDatasource": "custom.magpie-stable",
+      "versioning": "semver"
+    },
+    {
+      "matchFileNames": ["apps/searxng/*/docker-compose.yml"],
+      "matchPackageNames": ["ghcr.io/searxng/searxng"],
+      "versioning": "regex:^(?<major>[0-9]{4})\\.(?<minor>[0-9]{1,2})\\.(?<patch>[0-9]{1,2})-[0-9a-f]{8,40}$"
+    },
+    {
+      "matchFileNames": ["apps/open-notebook/*/docker-compose.yml"],
+      "matchPackageNames": ["surrealdb/surrealdb"],
+      "description": "Update Open Notebook's pinned SurrealDB version with a tested app release.",
+      "enabled": false
     },
     {
       "matchFileNames": ["apps/mysql/5.6.*/*.yml"],
@@ -170,7 +191,7 @@
       "allowedVersions": "/^\\d+\\.\\d+\\.\\d+-pg17$/"
     },
     {
-      "matchFileNames": ["apps/pgvector/*-pg18/*.yml"],
+      "matchFileNames": ["apps/pgvector/*-pg18/*.yml", "apps/timescaledb/*-pg18/*.yml"],
       "allowedVersions": "/^\\d+\\.\\d+\\.\\d+-pg18$/"
     },
     {
@@ -273,6 +294,16 @@
     {
       "matchFileNames": ["apps/odoo/19.*/*.yml"],
       "allowedVersions": "/^19.*/"
+    },
+    {
+      "matchFileNames": ["apps/jumpserver/4.*/docker-compose.yml"],
+      "matchPackageNames": ["jumpserver/jms_all"],
+      "allowedVersions": "/^v4\\.\\d+\\.\\d+$/"
+    },
+    {
+      "matchFileNames": ["apps/jumpserver/5.*/docker-compose.yml"],
+      "matchPackageNames": ["jumpserver/jms_all"],
+      "allowedVersions": "/^v5\\.\\d+\\.\\d+$/"
     },
     {
       "matchFileNames": ["apps/uptime-kuma/1.*/*.yml"],
